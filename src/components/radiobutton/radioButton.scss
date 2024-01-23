@@ -1,0 +1,49 @@
+@import "../../styles/variable.scss";
+
+.radio-label {
+  color: $color-quartenary;
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 7px;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+.radio-input {
+  margin: 0;
+  visibility: hidden;
+
+  &:checked + span {
+    border: 2px solid $color-quartenary;
+  }
+
+  &:checked + span:after {
+    opacity: 1;
+  }
+}
+
+.custom-radio {
+  left: -8px;
+  top: 6px;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #9a9a9a;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+
+  &::after {
+    content: "";
+    width: 1.4rem;
+    height: 1.4rem;
+    background: $color-quartenary;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+}

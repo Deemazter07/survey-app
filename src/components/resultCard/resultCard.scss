@@ -1,0 +1,45 @@
+@import "../../styles//variable.scss";
+
+.resultCard {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  padding: 2rem 1.4rem;
+
+  background: $color-primary;
+  border-radius: 8px;
+
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: 20px;
+
+    .title {
+      background: linear-gradient(to right, $color-secondary, $color-tertiary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subTitle {
+      color: $color-quartenary;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+}
