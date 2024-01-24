@@ -12,6 +12,7 @@ import ResultCard from "../../components/resultCard/ResultCard";
 import { motion } from "framer-motion";
 
 function Home() {
+  // * state management home
   const homeState: SurveyState = useSelector((state: any) => state.home);
   const { currentQuestionIndex, timer, surveyResponses } = homeState;
 
@@ -26,6 +27,7 @@ function Home() {
     setCurrentAnswer(answer);
   }
 
+  // * handle click next question
   function handleClickNext() {
     if (currentAnswer < 0) {
       toast.error("Please choose one option");
@@ -40,13 +42,16 @@ function Home() {
   }
 
   useEffect(() => {
+    // * welcome card
     if (currentQuestionIndex < 0) return;
 
+    // * check current timer eq 0 or finish answering question show result
     if (currentTimer === 0 || currentQuestionIndex == QUESTIONS.length) {
       setShowResult(true);
       return;
     }
 
+    // * timer countdown
     const intervalTimer = setInterval(() => {
       setCurrentTimer((prevTimer) => prevTimer - 1000);
       dispatch(homeActions.updateTimer(currentTimer) as any);
@@ -55,10 +60,12 @@ function Home() {
     return () => clearInterval(intervalTimer);
   }, [currentTimer, currentQuestionIndex]);
 
+  // * handle start survey welcome card
   function handleStartSurvey() {
     dispatch(homeActions.updatePageQuestion() as any);
   }
 
+  // * handle restart survey
   function handleRestart() {
     dispatch(homeActions.resetSurvey() as any);
     setShowResult(false);
@@ -76,8 +83,12 @@ function Home() {
           initial={{ opacity: 0, scale: 0.5, y: 50 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1 }}
+          whileHover={{
+            scale: 1.1,
+            transition: { duration: 0.5 },
+          }}
         >
-          Restart
+          Submit another response
         </motion.button>
       </div>
     );
@@ -95,6 +106,10 @@ function Home() {
             initial={{ opacity: 0, scale: 0.5, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            whileHover={{
+              scale: 1.1,
+              transition: { duration: 0.5 },
+            }}
           >
             Take me there!
           </motion.button>
@@ -124,6 +139,10 @@ function Home() {
             initial={{ opacity: 0, scale: 0.5, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            whileHover={{
+              scale: 1.1,
+              transition: { duration: 0.5 },
+            }}
           >
             Next
           </motion.button>

@@ -1,4 +1,5 @@
-@import "../../styles//variable.scss";
+@import "../../styles/variable.scss";
+@import "../../styles/responsive.scss";
 
 .resultCard {
   width: 100%;
@@ -22,18 +23,16 @@
     margin-bottom: 20px;
 
     .title {
+      font-size: 28px;
       background: linear-gradient(to right, $color-secondary, $color-tertiary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       color: transparent;
-    }
 
-    .subTitle {
-      color: $color-quartenary;
-      text-align: center;
-      font-size: 24px;
-      font-weight: 500;
+      @include md {
+        font-size: 20px;
+      }
     }
 
     .options {

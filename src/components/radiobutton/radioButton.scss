@@ -1,4 +1,5 @@
 @import "../../styles/variable.scss";
+@import "../../styles/responsive.scss";
 
 .radio-label {
   color: $color-quartenary;
@@ -7,6 +8,14 @@
   margin-right: 7px;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
+
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+
+  @include md {
+    font-size: 16px;
+  }
 }
 
 .radio-input {
@@ -33,6 +42,11 @@
   display: inline-block;
   position: relative;
 
+  @include md {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
   &::after {
     content: "";
     width: 1.4rem;
@@ -45,5 +59,10 @@
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.2s;
+
+    @include md {
+      width: 0.8rem;
+      height: 0.8rem;
+    }
   }
 }
